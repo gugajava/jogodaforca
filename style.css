@@ -1,0 +1,106 @@
+body {
+  background-color: #000;
+  color: #00ff00; /* verde binário */
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 20px;
+  font-size: 16px;
+}
+
+/* Container centralizado e com glitch sutil */
+#glitch-container {
+  text-align: center;
+  animation: flicker 10s infinite;
+  max-width: 90%;
+  margin: auto;
+}
+
+/* Título com glitch sutil */
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  text-shadow: 0 0 2px #00ff00;
+  animation: glitch 1.2s infinite;
+}
+
+/* Display de palavra e letras */
+#wordDisplay, #letters, #texto, #hangman {
+  margin: 10px 0;
+  word-wrap: break-word;
+}
+
+/* Botão estilizado como terminal */
+button {
+  background-color: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #00ff00;
+  color: #000;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.selected {
+  background-color: #004000;
+  color: #00ff00;
+}
+
+/* Efeito glitch leve */
+@keyframes glitch {
+  0% {
+    text-shadow: 1px 1px #00ff00;
+    transform: translateX(0);
+  }
+  20% {
+    text-shadow: -1px -1px #00ff00;
+    transform: translateX(-2px);
+  }
+  40% {
+    text-shadow: 1px -1px #00ff00;
+    transform: translateX(2px);
+  }
+  60% {
+    text-shadow: -1px 1px #00ff00;
+    transform: translateX(-2px);
+  }
+  80% {
+    text-shadow: 0 0 2px #00ff00;
+    transform: translateX(0);
+  }
+  100% {
+    text-shadow: 0 0 0 #00ff00;
+    transform: translateX(0);
+  }
+}
+
+/* Piscar leve */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.8;
+  }
+}
+
+#binaryCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
